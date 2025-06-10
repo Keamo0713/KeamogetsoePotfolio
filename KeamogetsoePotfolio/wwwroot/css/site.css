@@ -1,0 +1,57 @@
+﻿/* Base font size */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Background image on all pages */
+body {
+    margin-bottom: 60px;
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #000000; /* ✅ Set font color to pure black */
+}
+
+/* Links */
+a {
+    color: #000000; /* ✅ Black text for links */
+}
+
+    a:hover {
+        color: #333333;
+        text-decoration: underline;
+    }
+
+/* Footer styling */
+footer {
+    padding: 1rem 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: subtle background for contrast */
+    text-align: center;
+    font-size: 0.875rem;
+    color: #000000;
+}
+
+/* Logo image size */
+.navbar-brand img {
+    height: 60px;
+    border-radius: 4px;
+}
+
+/* Focus ring for accessibility */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem black, 0 0 0 0.25rem #258cfb;
+}
