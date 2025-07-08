@@ -1,37 +1,35 @@
-# Stage 1: Build the application
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
-WORKDIR /app
+# Dockerfile located at KeamogetsoePotfolio/Dockerfile
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-# Copy the .sln file if you have one at the solution root
-# Adjust path if your .sln is not at the repo root
-# For a single project repo where .csproj is at the root, you might skip this line.
-COPY KeamogetsoePotfolio.sln . # Make sure this matches your actual solution file name
+# Copy solution file and all project files first to leverage build caching
+COPY ["KeamogetsoePotfolio.sln", "."]
+COPY ["YourProjectFolder/YourProject.csproj", "YourProjectFolder/"]
+# If you have other library projects, include them too, e.g.:
+# COPY ["YourProjectFolder/YourLibraryProject/YourLibraryProject.csproj", "YourProjectFolder/YourLibraryProject/"]
 
-# Copy the .csproj files and restore dependencies
-# This assumes your main project is 'KeamogetsoePotfolio' within a folder of the same name.
-# Adjust these paths if your project structure is different (e.g., .csproj directly at repo root)
-COPY KeamogetsoePotfolio/*.csproj ./KeamogetsoePotfolio/
-RUN dotnet restore KeamogetsoePotfolio/KeamogetsoePotfolio.csproj
+# Restore NuGet packages
+RUN dotnet restore "YourProjectFolder/YourProject.csproj"
 
-# Copy the rest of the source code
+# Copy the rest of your application code (from the solution root)
 COPY . .
 
-# Publish the application
-# Adjust 'KeamogetsoePotfolio.csproj' if your project file has a different name
-# Ensure the -o /app/publish directory matches the WORKDIR in the final stage
-WORKDIR /app/KeamogetsoePotfolio # This should be the directory containing your main .csproj
-RUN dotnet publish -c Release -o /app/publish --no-restore
+# Change to the directory of your main project for building and publishing
+WORKDIR "/src/YourProjectFolder"
 
-# Stage 2: Create the final runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# Publish the application
+RUN dotnet publish "YourProject.csproj" -c Release -o /app/publish --no-self-contained --no-restore
+
+# --- Runtime Image ---
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 
 # Copy the published output from the build stage
-COPY --from=build-env /app/publish .
+COPY --from=build /app/publish .
 
-# Expose the port your application listens on (default for ASP.NET Core is 80)
-EXPOSE 80
+# Configure port for Render
+ENV ASPNETCORE_URLS=http://+:$PORT
+ENV PORT 10000
 
-# Define the entry point for the container
-# This assumes your main assembly (DLL) name is 'KeamogetsoePotfolio.dll'
-ENTRYPOINT ["dotnet", "KeamogetsoePotfolio.dll"]
+EXPOSE 10000
+ENTRYPOINT ["dotnet", "YourProject.dll"]
