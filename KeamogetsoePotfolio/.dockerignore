@@ -1,8 +1,0 @@
-# .dockerignore
-bin/
-obj/
-.vs/
-.vscode/
-node_modules/
-*.user
-*.log
