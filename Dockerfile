@@ -1,37 +1,49 @@
-# Stage 1: Build the application
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build-env # Using .NET 9.0 SDK
+# Use the official .NET SDK image to build the application
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-# Set the working directory inside the container
-WORKDIR /app
+# Copy the solution file and all project files first to leverage build caching
+# This assumes your solution file is KeamogetsoePotfolio.sln
+# And your main project folder and csproj are also named KeamogetsoePotfolio
+COPY ["KeamogetsoePotfolio.sln", "."]
+COPY ["KeamogetsoePotfolio/KeamogetsoePotfolio.csproj", "KeamogetsoePotfolio/"]
+# If you have any other projects in your solution (e.g., a Library project),
+# add their .csproj files here. For example:
+# COPY ["KeamogetsoePotfolio.Infrastructure/KeamogetsoePotfolio.Infrastructure.csproj", "KeamogetsoePotfolio.Infrastructure/"]
 
-# Copy the .csproj file and restore dependencies
-# This assumes KeamogetsoePotfolio.csproj is directly in the /app directory
-COPY KeamogetsoePotfolio.csproj ./
-RUN dotnet restore
+# Restore NuGet packages for the main project
+# This will also restore packages for any referenced projects defined in the .sln
+RUN dotnet restore "KeamogetsoePotfolio/KeamogetsoePotfolio.csproj"
 
-# Copy the rest of the application code
+# Copy the rest of your application code (from the solution root into /src)
 COPY . .
 
-# Publish the application for production
+# Change to the directory of your main project for building and publishing
+WORKDIR "/src/KeamogetsoePotfolio"
+
+# Publish the application
 # -c Release: Build in Release configuration
-# -o /app/publish: Output to /app/publish directory
+# -o /app/publish: Output compiled app to /app/publish
 # --no-self-contained: Create a framework-dependent executable (smaller size)
 # --no-restore: Don't restore packages again, they were restored above
 RUN dotnet publish "KeamogetsoePotfolio.csproj" -c Release -o /app/publish --no-self-contained --no-restore
 
-# Stage 2: Create the final runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 # Using .NET 9.0 ASP.NET runtime
+# --- Runtime Image ---
+# Use the official .NET ASP.NET Core Runtime image for the final application
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 
 # Copy the published output from the build stage
-COPY --from=build-env /app/publish .
+# This copies everything needed to run your app into the final, smaller image
+COPY --from=build /app/publish .
 
-# Expose the port your application listens on (Render's default for web services is 8080)
-EXPOSE 8080
+# Set the port Render expects and ensure your .NET app listens on it
+ENV ASPNETCORE_URLS=http://+:$PORT
+ENV PORT 10000 # Render's default port
 
-# Set the ASP.NET Core environment to Production
-ENV ASPNETCORE_ENVIRONMENT=Production
+# Expose the port (informative for Docker, but Render handles port mapping)
+EXPOSE 10000
 
-# Define the entry point for the container
-# This assumes your main compiled assembly (DLL) name is 'KeamogetsoePotfolio.dll'
+# Define the entry point for your application
+# This is the DLL that will be executed when the container starts
 ENTRYPOINT ["dotnet", "KeamogetsoePotfolio.dll"]
