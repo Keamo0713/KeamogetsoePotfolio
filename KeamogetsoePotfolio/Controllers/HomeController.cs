@@ -30,15 +30,7 @@ namespace KeamogetsoePotfolio.Controllers
                     LiveDemoUrl = "https://landbot.online/v3/H-2940441-CCTNIO0OAQ85JZDJ/index.html",
                     Technologies = new List<string> {"Landbot", "GPT"}
                 },
-                new Project
-                {
-                    Title = "Whisper Vault",
-                    Description = "Anonymous confession platform offering AI-generated emotional support. Built with ASP.NET Core MVC and OpenAI.",
-                    ImageUrl = "/images/whisper-vault.png", // Ensure this image exists in wwwroot/images
-                    GithubUrl = "https://github.com/Keamo0713/WhisperAIt",
-                    LiveDemoUrl = "https://whispervaultapi20250605093017-d6g5fzdrhqggdue9.canadacentral-01.azurewebsites.net/",
-                    Technologies = new List<string> { "ASP.NET Core MVC", "C#", "Entity Framework", "OpenAI API", "Bootstrap", "Azure DevOps" }
-                },
+              
                 new Project
                 {
                     Title = "SecureDoc",
@@ -83,7 +75,16 @@ namespace KeamogetsoePotfolio.Controllers
                     GithubUrl = "https://github.com/Keamo0713/creative_writing_generator",
                     LiveDemoUrl = "https://creative-writing-generator.onrender.com/",
                     Technologies = new List<string> { "Streamlit", "Python", "Render" }
-                }
+                },
+                new Project
+{
+                     Title = "Whisper: Anonymous Confessions with AI Advice",
+                     Description = "A secure web application built with ASP.NET Core MVC, allowing users to anonymously share confessions and receive empathetic AI-generated advice via the Google Gemini API. Features anonymous publishing to a public feed and a professional, dark-themed UI with transparent elements.",
+                     ImageUrl = "/images/whisper-app.png", // You'll need to create this image and place it in your wwwroot/images folder
+                     GithubUrl = "https://github.com/your-github-username/Whisper", // IMPORTANT: Replace with your actual GitHub repository URL
+                     LiveDemoUrl = "https://whisper-hsgq.onrender.com/",
+                     Technologies = new List<string> { "ASP.NET Core MVC", "C#", "Razor Pages", "Tailwind CSS", "Google Gemini API", "Render" }
+}
             };
             return View(projects);
         }
