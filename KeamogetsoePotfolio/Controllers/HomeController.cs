@@ -32,13 +32,13 @@ namespace KeamogetsoePotfolio.Controllers
                 },
                 new Project
                 {
-                    Title = "Whisper Vault",
-                    Description = "Anonymous confession platform offering AI-generated emotional support. Built with ASP.NET Core MVC and OpenAI.",
-                    ImageUrl = "/images/whisper-vault.png", // Ensure this image exists in wwwroot/images
-                    GithubUrl = "https://github.com/Keamo0713/WhisperAIt",
-                    LiveDemoUrl = "https://whispervaultapi20250605093017-d6g5fzdrhqggdue9.canadacentral-01.azurewebsites.net/",
-                    Technologies = new List<string> { "ASP.NET Core MVC", "C#", "Entity Framework", "OpenAI API", "Bootstrap", "Azure DevOps" }
-                },
+                    Title = "Whisper: Anonymous Confessions with AI Advice",
+                    Description = "A secure web application built with ASP.NET Core MVC, allowing users to anonymously share confessions and receive empathetic AI-generated advice via the Google Gemini API. Features anonymous publishing to a public feed and a professional, dark-themed UI with transparent elements.",
+                    ImageUrl = "/images/whisper-app.png", // You'll need to create this image and place it in your wwwroot/images folder
+                    GithubUrl = "https://github.com/your-github-username/Whisper", // IMPORTANT: Replace with your actual GitHub repository URL
+                    LiveDemoUrl = "https://whisper-hsgq.onrender.com/",
+                    Technologies = new List<string> { "ASP.NET Core MVC", "C#", "Razor Pages", "Tailwind CSS", "Google Gemini API", "Render" }
+},
                 new Project
                 {
                     Title = "SecureDoc",
