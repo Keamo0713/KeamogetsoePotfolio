@@ -39,7 +39,9 @@ COPY --from=build /app/publish .
 
 # Set the port Render expects and ensure your .NET app listens on it
 ENV ASPNETCORE_URLS=http://+:$PORT
-ENV PORT 10000 # Render's default port
+
+# Render's default port (comment moved to its own line for clarity)
+ENV PORT 10000 
 
 # Expose the port (informative for Docker, but Render handles port mapping)
 EXPOSE 10000
