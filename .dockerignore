@@ -1,0 +1,23 @@
+# Visual Studio and IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Binaries and object files
+bin/
+obj/
+
+# NuGet packages
+.nuget/
+packages/
+
+# Git ignore files
+.git/
+.gitignore
+
+# Other temp/unnecessary files
+*.bak
+*.log
+*.tmp
+*.pdb
