@@ -1,7 +1,6 @@
 using KeamogetsoePotfolio.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Collections.Generic; // Keeping this directive for clarity
 
 namespace KeamogetsoePotfolio.Controllers
 {
@@ -23,75 +22,75 @@ namespace KeamogetsoePotfolio.Controllers
             {
                 new Project
                 {
-                    Title = "Whisper Vault (Whisper API)", // Updated title for clarity
+                    Title = "Whisper Vault (Whisper API)",
                     Description = "An anonymous confession platform with AI-generated emotional support. Built with ASP.NET Core MVC and OpenAI.",
-                    ImageUrl = "/images/AI_Whisper.PNG", // Ensure this file exists in wwwroot/images
-                    GithubUrl = "https://github.com/Keamo0713/Whisper", // Updated GitHub URL
-                    LiveDemoUrl = "https://whisper-hsgq.onrender.com", // Updated Live Demo URL
-                    Technologies = new List<string> { "ASP.NET Core MVC", "C#", "Entity Framework", "OpenAI API", "Bootstrap", "AzureDevOps", "AI" } // Added AI
+                    ImageUrl = "/images/AI_Whisper.PNG",
+                    GithubUrl = "https://github.com/Keamo0713/Whisper",
+                    LiveDemoUrl = "https://whisper-hsgq.onrender.com",
+                    Technologies = new List<string> { "ASP.NET Core MVC", "C#", "Entity Framework", "OpenAI API", "Bootstrap", "AzureDevOps", "AI" }
                 },
                 new Project
                 {
-                    Title = "SecureLock", // Renamed from pleSecureDoc to SecureLock
+                    Title = "SecureLock",
                     Description = "A secure document request and approval system using face recognition, email authentication, and Firebase logging.",
-                    ImageUrl = "/images/SecureLock.png", // Ensure this image exists in wwwroot/images
+                    ImageUrl = "/images/SecureLock.png",
                     GithubUrl = "https://github.com/Keamo0713/pleSecureDoc",
-                    LiveDemoUrl = "https://plesecuredoc.onrender.com/", // Updated Live Demo URL
-                    Technologies = new List<string> { "ASP.NET Core MVC", "Azure Face API", "Firebase", "Gmail SMTP", "C#", "Entity Framework", "Security" } // Added Security
+                    LiveDemoUrl = "https://plesecuredoc.onrender.com/",
+                    Technologies = new List<string> { "ASP.NET Core MVC", "Azure Face API", "Firebase", "Gmail SMTP", "C#", "Entity Framework", "REST API", "Security" }
                 },
-                new Project // New Project: Resume Builder
+                new Project
                 {
                     Title = "Resume Builder",
-                    Description = "A web-based tool for building professional resumes.",
-                    ImageUrl = "/images/AI_Resume_builder.png", // Placeholder image: Create this in wwwroot/images
+                    Description = "A responsive web-based tool for building professional resumes.",
+                    ImageUrl = "/images/AI_Resume_builder.png",
                     GithubUrl = "https://github.com/Keamo0713/ResumeBuilder",
                     LiveDemoUrl = "https://keamo0713.github.io/ResumeBuilder/",
-                    Technologies = new List<string> { "HTML", "CSS", "JavaScript", "Web Development" }
+                    Technologies = new List<string> { "HTML", "CSS", "JavaScript", "Responsive Design", "Web Development" }
                 },
-                new Project // New Project: Company Sentiment Dashboard
+                new Project
                 {
                     Title = "Company Sentiment Dashboard",
-                    Description = "A dashboard for analyzing company sentiment from various data sources.",
-                    ImageUrl = "/images/Sentimental_Dshboard_AI.PNG", // Placeholder image: Create this in wwwroot/images
+                    Description = "A dashboard for analyzing company sentiment from various data sources using NLP models.",
+                    ImageUrl = "/images/Sentimental_Dshboard_AI.PNG",
                     GithubUrl = "https://github.com/Keamo0713/CompanySentimentalDashboard",
                     LiveDemoUrl = "https://companysentimentaldashboard.onrender.com",
-                    Technologies = new List<string> { "Python", "Machine Learning", "Data Visualization", "Web Dashboard", "Sentiment Analysis" }
+                    Technologies = new List<string> { "Python", "Streamlit", "Gemini API", "Pandas", "Matplotlib", "Sentiment Analysis", "Data Visualization", "NLP" }
                 },
-                new Project // New Project: Book Summarizer
+                new Project
                 {
                     Title = "Book Summarizer",
-                    Description = "An application that summarizes books and documents using AI.",
-                    ImageUrl = "/images/Book_SUmmerizor_AI.PNG", // Placeholder image: Create this in wwwroot/images
+                    Description = "An application that summarizes uploaded books and documents using AI and Gemini API.",
+                    ImageUrl = "/images/Book_SUmmerizor_AI.PNG",
                     GithubUrl = "https://github.com/Keamo0713/BookAndDocumentSummerizer",
                     LiveDemoUrl = "https://bookanddocumentsummerizer.onrender.com/",
-                    Technologies = new List<string> { "Python", "AI", "Natural Language Processing (NLP)", "Web Application" }
+                    Technologies = new List<string> { "Python", "Streamlit", "Gemini API", "NLP", "elevenlabs API", "AI", "Open Library" }
                 },
-                new Project // NEW PROJECT: Story & Poem Generator App
+                new Project
                 {
                     Title = "Story & Poem Generator App",
-                    Description = "A Streamlit web app that uses the Hugging Face API to generate creative stories and poems based on user input. The app offers a fun and interactive way to experiment with storytelling by customizing key elements of the narrative.",
-                    ImageUrl = "/images/creative_writing_AI.PNG", // Placeholder image: Create this in wwwroot/images
-                    GithubUrl = "https://github.com/yourusername/story-poem-generator", // Assuming 'yourusername' is a placeholder, please update if you have the actual repo
-                    LiveDemoUrl = "https://poem-and-storycraft.onrender.com/", // Updated Live Demo URL
-                    Technologies = new List<string> { "Streamlit", "Hugging Face API", "Python", "requests", "python-dotenv", "fpdf", "pandas", "numpy", "AI", "NLP" }
+                    Description = "A Streamlit web app that uses the Hugging Face API to generate creative stories and poems based on user input.",
+                    ImageUrl = "/images/creative_writing_AI.PNG",
+                    GithubUrl = "https://github.com/yourusername/story-poem-generator",
+                    LiveDemoUrl = "https://poem-and-storycraft.onrender.com/",
+                    Technologies = new List<string> { "Python", "Streamlit", "Hugging Face API", "requests", "pandas", "fpdf", "AI", "NLP" }
                 },
                 new Project
                 {
                     Title = "BirdGaze",
                     Description = "A bird recognition and logging system for bird watchers using image classification and geolocation.",
-                    ImageUrl = "/images/birdgaze.png", // Ensure this image exists in wwwroot/images
+                    ImageUrl = "/images/ebird api 2.0.PNG",
                     GithubUrl = "https://github.com/Keamo0713/BirdGaze",
-                    LiveDemoUrl = "#", // Replace with actual URL if hosted
-                    Technologies = new List<string> { "ASP.NET Core", "ML.NET", "GeoLocation API", "C#", "Entity Framework", "Machine Learning" } // Added Machine Learning
+                    LiveDemoUrl = "#",
+                    Technologies = new List<string> { "ASP.NET Core", "ML.NET", "GeoLocation API", "C#", "Entity Framework",  "ebird 2.0 API" }
                 },
                 new Project
                 {
                     Title = "AI Chatbot",
-                    Description = "A no-code educational AI chatbot using GPT.",
-                    ImageUrl = "/images/AI_Landbot.PNG", // Ensure this image exists in wwwroot/images
+                    Description = "A no-code educational AI chatbot built using Landbot, trained on AI fundamentals.",
+                    ImageUrl = "/images/AI_Landbot.PNG",
                     GithubUrl = "https://github.com/Keamo0713/AI-Learning-Chatbot",
                     LiveDemoUrl = "https://landbot.online/v3/H-2940441-CCTNIO0OAQ85JZDJ/index.html",
-                    Technologies = new List<string> { "Landbot", "AI/GPT" } // Added AI/GPT for clarity
+                    Technologies = new List<string> { "Landbot", "GPT", "No-Code", "AI", "Educational Chatbot" }
                 },
             };
 
