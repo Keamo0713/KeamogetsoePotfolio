@@ -1,8 +1,31 @@
-﻿@{
+﻿@model List<KeamogetsoePotfolio.Models.Project>
+    @{
     ViewData["Title"] = "Home";
-}
-<div class="text-center">
-    <h1>Hi, I'm Keamogetsoe Kgomotso Nicole Sele</h1>
-    <p>Software Developer | AI Enthusiast | Mobile App Builder</p>
-    <a href="/Home/Projects" class="btn btn-primary">View My Projects</a>
-</div>
+    }
+
+    <div class="profile-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+                    <div class="profile-picture-container">
+                        <img src="/images/Keamogetsoe.jpeg" alt="Keamogetsoe Sele Profile Picture" class="profile-image">
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <div class="profile-info">
+                        <h1 class="profile-name">Hi, I'm Keamogetsoe Sele</h1>
+                        <p class="profile-title">Software Developer | AI Enthusiast | Mobile App Builder</p>
+                        <p class="profile-description">
+                            I’m a highly motivated and versatile software developer who loves building AI, mobile, and web experiences. I am currently honing my skills in an intensive Artificial Intelligence (AI) Bootcamp at Capaciti.
+                        </p>
+                        <div class="social-links-container mt-4">
+                            <a href="https://www.linkedin.com/in/keamogetsoe-kgomotso-nicole-sele-455684178/" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Keamo0713" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="mailto:selekeamogetsoe@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

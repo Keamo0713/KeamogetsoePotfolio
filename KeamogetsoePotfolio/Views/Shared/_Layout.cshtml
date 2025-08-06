@@ -1,25 +1,40 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewData["Title"] - Nicole Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Keamogetsoe Kgomotso Nicole Sele Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" xintegrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEbFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Your Custom Site CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <div class="d-flex flex-column min-vh-100">
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
-                <a class="navbar-brand d-flex align-items-center" href="/">
-                    <img src="~/images/logo.png" alt="Logo" class="me-2" />
-                    <span>KKN  Portfolio</span>
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+                <a class="navbar-brand" href="/">
+                    <!-- You can add a logo image here if you have one -->
+                    <img src="/images/logo.png" alt="Logo" class="img-fluid" style="height: 40px;">
                 </a>
-                <div class="collapse navbar-collapse">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/Home/About">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="/Home/Projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Home/Resume">Resume</a></li> <!-- New Resume Link -->
                         <li class="nav-item"><a class="nav-link" href="/Home/Contact">Contact</a></li>
                     </ul>
                 </div>
@@ -31,10 +46,12 @@
         </main>
 
         <footer class="text-center mt-auto py-3">
-            <p>&copy; 2025 Keamogetsoe Sele</p>
+            <p>&copy; Keamogetsoe Kgomotso Nicole Sele</p>
         </footer>
     </div>
 
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
