@@ -62,7 +62,7 @@ namespace KeamogetsoePotfolio.Controllers
                     Description = "An application that summarizes uploaded books and documents using AI and Gemini API.",
                     ImageUrl = "/images/Book_SUmmerizor_AI.PNG",
                     GithubUrl = "https://github.com/Keamo0713/BookAndDocumentSummerizer",
-                    LiveDemoUrl = "https://bookanddocumentsummerizer.onrender.com/",
+                    LiveDemoUrl = "https://lumireads-frontend.onrender.com/",
                     Technologies = new List<string> { "Python", "Streamlit", "Gemini API", "NLP", "elevenlabs API", "AI", "Open Library" }
                 },
                 new Project
