@@ -1,7 +1,23 @@
-﻿@{
+﻿@model KeamogetsoePotfolio.Models.ContactForm
+
+@{
     ViewData["Title"] = "Contact Me";
 }
 
+@if (TempData["SuccessMessage"] != null)
+{
+<div class="alert alert-custom-success alert-dismissible fade show" role="alert">
+    @TempData["SuccessMessage"]
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    @TempData["ErrorMessage"]
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+}
 
 <div class="contact-section-new">
     <h2 class="section-title text-center mb-5">Contact Me</h2>
@@ -26,34 +42,28 @@
                         </li>
                         <li>
                             <i class="fas fa-phone-alt"></i>
-                            <span>+27 71 289 9785</span> 
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Pretoria, South Africa</span>
+                            <span>+27 71 289 9785</span>
                         </li>
                     </ul>
-                    <p class="info-text mt-4">If you have any queries at all, please feel free to reach out and I'll gladly answer them.</p>
-                    <p class="info-text">Thanks for visiting.</p>
                 </div>
             </div>
             <div class="col-md-6 contact-form-col">
-                <form action="mailto:selekeamogetsoe@gmail.com" method="post" enctype="text/plain">
+                <form asp-controller="Home" asp-action="SendEmail" method="post">
                     <div class="mb-3">
                         <label for="fullName" class="form-label">Enter your Full Name</label>
-                        <input type="text" class="form-control" id="fullName" name="Full Name" placeholder="Your Name">
+                        <input type="text" class="form-control" id="fullName" name="FullName" placeholder="Your Name" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Enter your Email</label>
-                        <input type="email" class="form-control" id="email" name="Email" placeholder="Your Email">
+                        <input type="email" class="form-control" id="email" name="Email" placeholder="Your Email" required>
                     </div>
                     <div class="mb-3">
-                        <label for="phone" class="form-label">Enter your Phone Number</label>
-                        <input type="tel" class="form-control" id="phone" name="Phone Number" placeholder="Your Phone Number">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="Subject" placeholder="Subject" required>
                     </div>
                     <div class="mb-3">
                         <label for="suggestions" class="form-label">Suggestions/Queries</label>
-                        <textarea class="form-control" id="suggestions" name="Message" rows="5" placeholder="Your message"></textarea>
+                        <textarea class="form-control" id="suggestions" name="Message" rows="5" placeholder="Your message" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary-custom">Send</button>
                 </form>
@@ -61,4 +71,3 @@
         </div>
     </div>
 </div>
-

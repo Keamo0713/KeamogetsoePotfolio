@@ -331,7 +331,7 @@ footer {
         transform: translateY(-2px);
     }
 
-/* Resume Section */
+/* Resume Section - Fixed for all screen sizes */
 .resume-section {
     padding: 8rem 0 5rem;
     background-color: #FDFBF8;
@@ -345,7 +345,91 @@ footer {
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     padding: 3rem;
+    max-width: 900px; /* Constrain maximum width */
+    margin: 0 auto; /* Center the card */
 }
+
+/* Force mobile-like styling on all screen sizes */
+.resume-section .resume-subsection,
+.resume-section .job-entry,
+.resume-section .education-list,
+.resume-section .job-description-list {
+    text-align: center;
+}
+
+.resume-section .subsection-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #8B4513;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+    .resume-section .subsection-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: #D2B48C;
+        border-radius: 2px;
+    }
+
+/* Skills section styling (Now horizontal on desktop) */
+.technical-sub-columns-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tech-column {
+    flex: 1;
+    min-width: 280px; /* Ensure columns don't get too narrow */
+    margin-bottom: 1.5rem;
+}
+
+/* Lists styling - Removed default bullets and kept custom ones */
+.education-list,
+.job-description-list,
+.project-description-list,
+.interests-list,
+.personal-details-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+    .education-list li,
+    .job-description-list li,
+    .project-description-list li,
+    .interests-list li,
+    .personal-details-list li {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+        position: relative;
+        padding-left: 1.2rem;
+        text-align: left;
+    }
+
+        /* Tan bullets */
+        .education-list li::before,
+        .job-description-list li::before,
+        .project-description-list li::before,
+        .interests-list li::before {
+            content: '•';
+            color: #D2B48C; /* Tan bullet */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
 
 .skill-category-card-new {
     background-color: #FDFBF8; /* Lighter nude background for skill cards */
@@ -363,6 +447,7 @@ footer {
         margin-bottom: 1.5rem;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
         .skill-category-card-new h4 i {
@@ -371,25 +456,15 @@ footer {
             color: #D2B48C; /* Tan icon */
         }
 
-.technical-sub-columns-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+.tech-column h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px dashed #EAE0D5; /* Light nude dashed line */
+    padding-bottom: 0.5rem;
+    text-align: center;
 }
-
-.tech-column {
-    flex: 1 1 calc(33.33% - 1rem); /* Three columns on larger screens */
-    min-width: 180px; /* Minimum width for columns */
-}
-
-    .tech-column h5 {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: #555;
-        margin-bottom: 0.8rem;
-        border-bottom: 1px dashed #EAE0D5; /* Light nude dashed line */
-        padding-bottom: 0.5rem;
-    }
 
 .skills-list-new {
     list-style: none;
@@ -403,6 +478,7 @@ footer {
         margin-bottom: 0.5rem;
         position: relative;
         padding-left: 1.2rem;
+        text-align: left; /* Aligned left for skills list */
     }
 
         .skills-list-new li::before {
@@ -453,6 +529,90 @@ footer {
     color: #777;
     margin-top: 0.8rem;
 }
+
+/* Resume Subsections */
+.resume-subsection {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #EAE0D5; /* Light nude separator */
+}
+
+    .resume-subsection:last-child {
+        border-bottom: none; /* No border for the last section */
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+.subsection-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #8B4513; /* SaddleBrown heading */
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .subsection-title i {
+        margin-right: 0.8rem;
+        font-size: 2rem;
+        color: #D2B48C; /* Tan icon */
+    }
+
+/* Objective Text */
+.objective-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    text-align: center;
+}
+
+/* Job Entry Specifics */
+.job-entry {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #EAE0D5; /* Light dashed separator for jobs */
+}
+
+    .job-entry:last-of-type {
+        border-bottom: none; /* No border for the last job entry in a section */
+    }
+
+    .job-entry h4 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.3rem;
+    }
+
+.job-duration {
+    font-size: 0.95rem;
+    color: #777;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* Project Entry Specifics */
+.project-entry {
+    margin-bottom: 1.5rem;
+}
+
+    .project-entry h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+/* Personal Details List - no bullet */
+.personal-details-list li {
+    padding-left: 0; /* Remove indent for personal details */
+    text-align: center;
+}
+
+    .personal-details-list li::before {
+        content: none; /* Remove bullet for personal details */
+    }
 
 /* Contact Section */
 .contact-section-new {
@@ -508,6 +668,7 @@ footer {
         margin-bottom: 1rem;
         font-size: 1rem;
         color: #555;
+        justify-content: center;
     }
 
         .contact-details-list li i {
@@ -617,8 +778,10 @@ footer {
         border-bottom-left-radius: 12px;
     }
 
+    /* Skills section responsive fix */
     .technical-sub-columns-container {
         flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -665,164 +828,24 @@ footer {
         padding: 1.5rem;
     }
 
-    .tech-column {
-        min-width: unset;
-        flex: 1 1 100%; /* Single column on very small screens */
-    }
-
     .contact-info-col,
     .contact-form-col {
         padding: 1.5rem;
     }
-    /* Add these styles to your existing site.css file */
 
-    /* Resume Subsections */
-    .resume-subsection {
-        margin-bottom: 2.5rem;
-        padding-bottom: 1.5rem;
-        border-bottom: 1px solid #EAE0D5; /* Light nude separator */
-    }
-
-        .resume-subsection:last-child {
-            border-bottom: none; /* No border for the last section */
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
+    /* Mobile adjustments for resume */
     .subsection-title {
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #8B4513; /* SaddleBrown heading */
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
+        font-size: 1.5rem;
     }
 
-        .subsection-title i {
-            margin-right: 0.8rem;
-            font-size: 2rem;
-            color: #D2B48C; /* Tan icon */
-        }
-
-    /* Objective Text */
-    .objective-text {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        color: #555;
-    }
-
-    /* Lists within resume sections */
+    /* All list styling */
     .education-list,
     .job-description-list,
     .project-description-list,
     .interests-list,
     .personal-details-list {
         list-style: none;
-        padding: 0;
-        margin: 0;
+        padding-left: 0;
+        margin-left: 0;
     }
-
-        .education-list li,
-        .job-description-list li,
-        .project-description-list li,
-        .interests-list li,
-        .personal-details-list li {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1.5rem; /* Indent for bullet points */
-        }
-
-            .education-list li::before,
-            .job-description-list li::before,
-            .project-description-list li::before,
-            .interests-list li::before {
-                content: '\2022'; /* Unicode for a solid bullet */
-                color: #D2B48C; /* Tan bullet point */
-                font-weight: bold;
-                display: inline-block;
-                width: 1em;
-                margin-left: -1.5em; /* Adjust to align with text */
-                position: absolute;
-                left: 0;
-            }
-
-    /* Job Entry Specifics */
-    .job-entry {
-        margin-bottom: 2rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px dashed #EAE0D5; /* Light dashed separator for jobs */
-    }
-
-        .job-entry:last-of-type {
-            border-bottom: none; /* No border for the last job entry in a section */
-        }
-
-        .job-entry h4 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.3rem;
-        }
-
-    .job-duration {
-        font-size: 0.95rem;
-        color: #777;
-        margin-bottom: 1rem;
-        font-style: italic;
-    }
-
-    /* Project Entry Specifics */
-    .project-entry {
-        margin-bottom: 1.5rem;
-    }
-
-        .project-entry h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-    /* Personal Details List - no bullet */
-    .personal-details-list li {
-        padding-left: 0; /* Remove indent for personal details */
-    }
-
-        .personal-details-list li::before {
-            content: none; /* Remove bullet for personal details */
-        }
-
-    /* Responsive adjustments for resume */
-    @media (max-width: 767.98px) {
-        .resume-content-card {
-            padding: 1.5rem;
-        }
-
-        .subsection-title {
-            font-size: 1.5rem;
-            text-align: center;
-            justify-content: center;
-        }
-
-            .subsection-title i {
-                font-size: 1.7rem;
-            }
-
-        .job-entry h4,
-        .project-entry h4 {
-            font-size: 1.1rem;
-        }
-
-        .objective-text,
-        .education-list li,
-        .job-description-list li,
-        .project-description-list li,
-        .interests-list li,
-        .personal-details-list li {
-            font-size: 0.95rem;
-        }
-    }
-
 }
